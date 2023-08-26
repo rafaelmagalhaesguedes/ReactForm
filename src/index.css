@@ -15,7 +15,6 @@ body {
 
 .container {
   width: 100%;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -34,15 +33,14 @@ header {
 .wrapper-header {
   display: flex;
   justify-content: space-between;
-  width: 80%;
-  align-items: center;  
-  padding: 10px;
+  width: 70%;
+  align-items: center;
+  padding: 10px 0;
 }
 
 .logo > img {
   margin: 0;
   padding: 0;
-
 }
 
 .title > h1 {
@@ -80,34 +78,67 @@ main {
   align-items: center;
   width: 100%;
   border-radius: 5px;
+  margin: 20px 0;
 }
 
 section {
-  width: 80%;
+  width: 70%;
   height: auto;
-  margin: 20px 0;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  background-color: #1a1a1F;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
 }
 
 form {
+  display: flex;
+  flex-flow: row wrap;
   width: 100%;
+  justify-content: space-between;
 }
 
-form > h2 {
+.inputs-form {
+  width: 60%;
+  margin-bottom: 20px;
+}
+
+.password-validate {
+  width: 35%;
+  height: 200px;
+  margin-top: 90px;
+  border-radius: 10px;
+  background-color: #3a3939;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 35px;
+}
+
+.password-check {
+  border-radius: 10px;
+}
+
+.password-toggle-button {
+  margin-top: 48px;
+  position: absolute;
+  background-color:#323131;
+}
+
+.toogle-button {
+  border: none;
+  background-color:#323131;
+  color: white;
+  position: absolute;
+  cursor: pointer;
+  right: 10px;
+}
+
+.title-form {
   margin-bottom: 10px;
   font-size: 2rem;
 }
 
-form > div {
+.input-box {
   margin: 10px 0;
 }
 
-form > div > input {
+input {
   display: block;
   width: 100%;
   height: 3rem;
@@ -120,45 +151,30 @@ form > div > input {
   color: #FFF;
 }
 
-.inputs-box {
+.inputs-login-pass {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: right;
   gap: 1rem;
 }
 
-.inputs-box > div {
+.input-box {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 
-.inputs-box > div > input {
-  display: block;
-  width: 100%;
-  height: 3rem;
-  border-radius: 8px;
-  border: 1px solid #1a1a1F;
-  outline: 0;
-  padding: 0 10px;
-  font-size: 1rem;
-  background-color: #323131;
-  color: #FFF;
-}
-
-.form-buttons {
+.buttons-form {
   display: flex;
   flex-direction: row;
-  width: 100%;
+  width: 60%;
   justify-content: space-between;
-  gap: 1rem;
-  margin: 20px 0;
 }
 
-.form-buttons > button {
-  width: 100%;
+.register-button {
+  width: 65%;
   padding: 15px;
-  border-radius: 50px;
+  border-radius: 10px;
   border: 1px solid #379ee2;
   color:beige;
   cursor: pointer;
@@ -167,10 +183,21 @@ form > div > input {
   background-color:  #379ee2;
 }
 
-button:disabled {
+.register-button:disabled {
   background-color: #ccc;
   color: #3a3939;
   cursor: not-allowed;
+  border: none;
+}
+
+.clear-button {
+  width: 30%;
+  background-color: #1a1a1F;
+  border-radius: 50px;
+  border: 1px solid #c4c4c4;
+  color: white;
+  font-size: 1.3rem;
+  cursor: pointer;
 }
 
 button:hover {
@@ -179,36 +206,63 @@ button:hover {
   border: 1px solid #c4c4c4;
 }
 
-.image-section > img {
-  width: 400px;
-  padding: 50px;
+.valid-password-check {
+  color: #aeffb6;
 }
+
+.invalid-password-check {
+  color: #f58989;
+}
+
 
 @media only screen and (max-width: 768px) {
 
   .wrapper-header {
     width: 100%;
-    padding: 10px;
+    padding: 20px;
+  }
+
+  main {
+    padding: 0;
+    margin: 0;
   }
 
   section {
     width: 100%;
     height: auto;
     flex-direction: column;
-    padding: 20px;
   }
 
   form {
-    padding: 0;
-    margin-bottom: 50px;
-  }
-
-  .image-section {
-    width: 100%;
-  }
-
-  .image-section > img {
     width: 100%;
     padding: 20px;
+    flex-flow: column;
+  }
+  .password-validate {
+    width: 35%;
+    height: 200px;
+    margin-top: 90px;
+    border-radius: 10px;
+    background-color: #3a3939;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 35px;
+  }
+
+  .inputs-form {
+    width: 100%;
+  }
+  
+  .password-validate {
+    width: 100%;
+    margin: 20px 0;
+    padding: 25px 45px;
+    height: auto;
+  }
+
+  .buttons-form {
+    width: 100%;
+    margin: 20px 0;
   }
 }
