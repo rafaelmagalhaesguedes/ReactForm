@@ -1,8 +1,8 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 import { LoginData } from '../type.';
 import { v4 as uuid } from 'uuid';
 
-function Form() {
+function RegisterUser() {
   const initialFormData: LoginData = {
     id: '',
     name: '',
@@ -15,10 +15,23 @@ function Form() {
 
   const [dataList, setDataList] = useState<LoginData[]>([]);
 
+  const [button, setButton] = useState(false);
+
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
+
+  const validateForms = (password: string) => {
+    const passRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    return passRegex.test(password);
+  }
+
+  useEffect(() => {
+    const valida = validateForms(formData.password);
+    setButton(!valida);
+    
+  },[formData]);
 
   const handleSubmit = (e: ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -35,7 +48,7 @@ function Form() {
 
   return (
     <form id="form" onSubmit={handleSubmit}>
-      <h2>Enter your data</h2>
+      <h2>Register User</h2>
       <div>
         <label>Name</label>
         <input
@@ -46,24 +59,26 @@ function Form() {
           onChange={handleChange}
         />
       </div>
-      <div>
-        <label>Login</label>
-        <input
-          id="login"
-          name="login"
-          value={formData.login}
-          onChange={handleChange}
-        />
-      </div>
-      <div>
-        <label>Password</label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          value={formData.password}
-          onChange={handleChange}
-        />
+      <div className="inputs-box">
+        <div>
+          <label>Login</label>
+          <input
+            id="login"
+            name="login"
+            value={formData.login}
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label>Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+          />
+        </div>
       </div>
       <div>
         <label>Email</label>
@@ -77,11 +92,10 @@ function Form() {
       </div>
 
       <div className="form-buttons">
-        <button type="submit">Register</button>
-        <button type="reset">Clear</button>
+        <button disabled={ button } type="submit">Register</button>
       </div>
     </form>
   );
 }
 
-export default Form;
+export default RegisterUser;

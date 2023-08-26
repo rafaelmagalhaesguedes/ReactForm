@@ -1,5 +1,5 @@
 import Logo from './assets/react.svg';
-import Form from './components/Form';
+import RegisterUser from './components/RegisterUser';
 
 function App() {
 
@@ -25,11 +25,8 @@ function App() {
       <main>
         <section>
 
-          <Form />
-
-          <div className="image-section">
-            <img src={ Logo } ></img>
-          </div>
+          <RegisterUser />
+          
         </section>
       </main>
       
