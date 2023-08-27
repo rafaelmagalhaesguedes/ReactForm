@@ -27,14 +27,15 @@
   margin: 20px 0;
 }
 
-.buttons-home > button {
-  padding: 20px 30px;
+.button {
+  padding: 10px 30px;
   width: 45%;
   border-radius: 10px;
   border: 1px solid darkslategray;
   font-size: 1.2rem;
   background-color: darkslategray;
   color: white;
+  text-align: center;
 }
 
 .image-home {

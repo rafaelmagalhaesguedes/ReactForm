@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import QRCode from '../assets/images/qr-transparent.png';
 import '../components/Home/Home.css';
 
@@ -18,8 +19,8 @@ function Home() {
         </h2>
 
         <div className="buttons-home">
-          <button>Login</button>
-          <button>Register</button>
+          <Link className="button" to="/login">Login</Link>
+          <Link className="button" to="/register">Register</Link>
         </div>
       </div>
       <div className="image-home">

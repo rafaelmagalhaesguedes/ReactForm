@@ -79,7 +79,7 @@ export default function Form() {
       const duplicateEmail = userExist.some(user => user.email === formData.email);
   
       if (duplicateLogin) {
-        console.log('Login já existe');
+        console.log('Login already exist');
         Swal.fire({
           text: 'Login already exist',
           icon: 'error',
@@ -90,6 +90,7 @@ export default function Form() {
       }
   
       if (duplicateEmail) {
+        console.log('Email already exist');
         Swal.fire({
           text: 'Email already exist',
           icon: 'error',
