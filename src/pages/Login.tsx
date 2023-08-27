@@ -1,5 +1,7 @@
 import '../components/Login/login.css';
 import Image from '../assets/react.svg';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser, faLock } from '@fortawesome/free-solid-svg-icons';
 
 function Login () {
   return (
@@ -16,10 +18,12 @@ function Login () {
         <form className="login-form" id="form">
 
           <div className="input-login box">
+            <FontAwesomeIcon className="icons-login" icon={ faUser } size="lg"/>
             <input type="text" placeholder="Login" className="login-input"/>
           </div>
 
           <div className="input-password box">
+            <FontAwesomeIcon className="icons-login" icon={ faLock } size="lg"/>
             <input type="password" placeholder="Password" className="password-input" />
           </div>
 
@@ -32,7 +36,7 @@ function Login () {
             <button>Sign in</button>
           </div>
           
-          <div>
+          <div className="forgotten-password">
             <p><a href="#">Forgotten your password?</a></p>
           </div>
 
