@@ -1,4 +1,4 @@
-import QRCode from '../assets/images/qr.png';
+import QRCode from '../assets/images/qr-transparent.png';
 import '../components/Home/Home.css';
 
 function Home() {

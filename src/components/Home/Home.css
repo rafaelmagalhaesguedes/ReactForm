@@ -6,7 +6,7 @@
 }
 
 .infos-home {
-  width: 40%;
+  width: 60%;
 }
 
 .title-home {
@@ -38,12 +38,15 @@
 }
 
 .image-home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 40%;
-  margin: 60px 0;
 }
 
 .image-home > img {
   width: 80%;
+  padding: 50px;
 }
 
 @media only screen and (max-width: 768px) {
