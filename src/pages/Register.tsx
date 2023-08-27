@@ -1,10 +1,10 @@
 import { ChangeEvent, useEffect, useState } from 'react';
 import { LoginData } from '../type.';
 import { v4 as uuid } from 'uuid';
-import PasswordValidate from './PasswordValidate';
-import PasswordToggleButton from './PasswordToggleButton';
+import PasswordValidate from '../components/Register/PasswordValidate';
+import PasswordToggleButton from '../components/Register/PasswordToggleButton';
 
-function RegisterUser() {
+function Register() {
   const initialFormData: LoginData = {
     id: '',
     name: '',
@@ -23,9 +23,10 @@ function RegisterUser() {
   const [maxLengthPassword, setMaxLengthPassword] = useState(false);
   const [specialCharacter, setSpecialCharacter] = useState(false);
   const [LettersAndNumbers, setLettersAndNumbers] = useState(false);
+  const [emailValid, setEmailValid] = useState(false);
 
   // Button Show Password
-  const [passwordType, setPasswordType] = useState(false); // Mudando o nome e o tipo para booleano
+  const [passwordType, setPasswordType] = useState(false);
 
   // Button Show Password State
   const togglePasswordVisibility = () => {
@@ -37,19 +38,25 @@ function RegisterUser() {
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  const validateForms = (password: string) => {
-    const passRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+  const validatePassword = (password: string) => {
+    const passRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,16}$/;
     return passRegex.test(password);
-  }
+  };
+
+  const validateEmail = (email: string) => {
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return emailRegex.test(email)
+  };
 
   useEffect(() => {
-    const valida = validateForms(formData.password);
-    setButton(!valida);
-
+    const validPassword = validatePassword(formData.password);
+    const validEmail = validateEmail(formData.email);
     setLengthPassword(formData.password.length > 8);
     setMaxLengthPassword(formData.password.length < 17);
     setSpecialCharacter(/[!@#$%^&*()_+{}[\]:;<>,.?~\\/-]/.test(formData.password));
     setLettersAndNumbers(/^(?=.*[a-zA-Z])(?=.*\d).+$/.test(formData.password));
+    setEmailValid(validEmail);
+    setButton(!(validPassword && validEmail));
     
   },[formData, lengthPassword, specialCharacter, LettersAndNumbers, maxLengthPassword]);
 
@@ -57,6 +64,7 @@ function RegisterUser() {
     e.preventDefault();
 
     const newId = uuid();
+
     const newDataWithId = { ...formData, id: newId };
 
     setDataList((prevDataList) => [...prevDataList, newDataWithId]);
@@ -141,6 +149,11 @@ function RegisterUser() {
           text="Possuir letras e números"
         />
 
+        <PasswordValidate
+          valid={ emailValid }
+          text="Possuir um email válido"
+        />
+
       </div>
 
       <div className="buttons-form">
@@ -151,4 +164,4 @@ function RegisterUser() {
   );
 }
 
-export default RegisterUser;
+export default Register;

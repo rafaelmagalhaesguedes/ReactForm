@@ -1,5 +1,5 @@
 import Logo from './assets/react.svg';
-import RegisterUser from './components/RegisterUser';
+import Register from './pages/Register';
 
 function App() {
 
@@ -25,8 +25,8 @@ function App() {
       <main>
         <section>
 
-          <RegisterUser />
-          
+          <Register />
+
         </section>
       </main>
       
