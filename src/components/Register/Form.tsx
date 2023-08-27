@@ -1,3 +1,4 @@
+import Swal from 'sweetalert2';
 import { ChangeEvent, useEffect, useState } from 'react';
 import { LoginData } from '../../type';
 import { v4 as uuid } from 'uuid';
@@ -57,16 +58,15 @@ export default function Form() {
 
   // Hook useEffect
   useEffect(() => {
-    const validPassword = validatePassword(formData.password);
-    const validEmail = validateEmail(formData.email);
     setLengthPassword(formData.password.length > 8);
     setMaxLengthPassword(formData.password.length < 17);
     setSpecialCharacter(/[!@#$%^&*()_+{}[\]:;<>,.?~\\/-]/.test(formData.password));
     setLettersAndNumbers(/^(?=.*[a-zA-Z])(?=.*\d).+$/.test(formData.password));
+    const validPassword = validatePassword(formData.password);
+    const validEmail = validateEmail(formData.email);
     setEmailValid(validEmail);
     setButton(!(validPassword && validEmail));
-    
-  },[formData, lengthPassword, specialCharacter, LettersAndNumbers, maxLengthPassword]);
+  },[formData]);
 
   // Submit form
   const handleSubmit = (e: ChangeEvent<HTMLFormElement>) => {
@@ -77,10 +77,17 @@ export default function Form() {
     setDataList((prevDataList) => [...prevDataList, newDataWithId]);
 
     // Save data local storage
-    localStorage.setItem('dataUser', JSON.stringify(dataList));
+    localStorage.setItem('dataUser', JSON.stringify([...dataList, newDataWithId]));
 
     // Reset Form
     setFormData(initialFormData);
+
+    Swal.fire({
+      text: 'Service registered successfully',
+      icon: 'success',
+      timer: 1500,
+      timerProgressBar: true,
+    });
   };
 
   // Button reset form
@@ -104,7 +111,7 @@ export default function Form() {
         </div>
         <div className="inputs-login-pass">
           <div className="input-box">
-            <label>Login</label>
+            <label>Username</label>
             <input
               id="login"
               name="login"

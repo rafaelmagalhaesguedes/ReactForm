@@ -1,4 +1,4 @@
-import Coffe from '../assets/images/mug-hot-solid-white.png';
+import QRCode from '../assets/images/qr.png';
 import '../components/Home/Home.css';
 
 function Home() {
@@ -23,7 +23,7 @@ function Home() {
         </div>
       </div>
       <div className="image-home">
-        <img src={ Coffe } alt="coffe and code" />
+        <img src={ QRCode } alt="coffe and code" />
       </div>
     </div>
   )

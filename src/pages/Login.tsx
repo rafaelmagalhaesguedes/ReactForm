@@ -19,7 +19,7 @@ function Login () {
 
           <div className="input-login box">
             <FontAwesomeIcon className="icons-login" icon={ faUser } size="lg"/>
-            <input type="text" placeholder="Login" className="login-input"/>
+            <input type="text" placeholder="Username" className="login-input"/>
           </div>
 
           <div className="input-password box">
