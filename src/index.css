@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+}
+
 body {
   font-family: "Segoe UI",SegoeUI,"Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 1rem;
@@ -149,6 +153,12 @@ input {
   font-size: 1rem;
   background-color: #323131;
   color: #FFF;
+}
+
+/* Estilo quando o input está em foco (clicado) */
+input:focus {
+  border-color: #007bff; /* Ou qualquer outra cor que você queira */
+  outline: none; /* Remove a borda padrão do navegador */
 }
 
 .inputs-login-pass {

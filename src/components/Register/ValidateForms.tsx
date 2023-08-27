@@ -6,7 +6,7 @@ type PasswordValidateProps = {
   text: string;
 };
 
-function PasswordValidate({ valid, text }: PasswordValidateProps) {
+function ValidateForms({ valid, text }: PasswordValidateProps) {
   const className = valid ? 'valid-password-check' : 'invalid-password-check';
 
   if (className === 'valid-password-check'){
@@ -17,4 +17,4 @@ function PasswordValidate({ valid, text }: PasswordValidateProps) {
   return <div className={ `password-check ${className}` }>{text}</div>;
 }
 
-export default PasswordValidate;
+export default ValidateForms;

@@ -1,38 +1,22 @@
-import Logo from './assets/react.svg';
+import Header from './components/Header/Header';
+import { Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import Login from './pages/Login';
 import Register from './pages/Register';
 
 function App() {
 
   return (
     <div className="container">
-      <header>
-        <div className="wrapper-header">
-          <div className="logo">
-            <img src={ Logo }></img>
-          </div>
-          <div className="title">
-            <h1>Register</h1>
-          </div>
-          <div className="nav">
-            <nav>
-              <a>Login</a>
-              <a>Register</a>
-            </nav>
-          </div>
-        </div>
-      </header>
-
-      <main>
-        <section>
-
-          <Register />
-
-        </section>
-      </main>
       
-      <footer>
-      </footer>
+      <Header />
 
+      <Routes>
+        <Route path="/" element={ <Home /> } />
+        <Route path="/login" element={ <Login />} />
+        <Route path="/register" element={ <Register /> } />
+      </Routes>
+  
     </div>
   )
 }
