@@ -52,7 +52,7 @@
 @media only screen and (max-width: 768px) {
   .container-home {
     width: 100%;
-    padding: 20px;
+    padding: 0 30px;
     flex-direction: column;
   }
   .infos-home {
@@ -60,6 +60,9 @@
   }
   .image-home {
     width: 100%;
-    padding: 20px;
+  }
+  .image-home > img {
+    width: 100%;
+    margin-bottom: 50px;
   }
 }

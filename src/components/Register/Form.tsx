@@ -1,4 +1,5 @@
 import Swal from 'sweetalert2';
+import bcrypt from 'bcryptjs';
 import { ChangeEvent, useEffect, useState } from 'react';
 import { LoginData } from '../../type';
 import { v4 as uuid } from 'uuid';
@@ -16,9 +17,6 @@ export default function Form() {
 
   // Form data
   const [formData, setFormData] = useState<LoginData>(initialFormData);
-
-  // New data
-  const [dataList, setDataList] = useState<LoginData[]>([]);
 
   // Button Register
   const [button, setButton] = useState(false);
@@ -53,7 +51,7 @@ export default function Form() {
   // Validate Email format
   const validateEmail = (email: string) => {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    return emailRegex.test(email)
+    return emailRegex.test(email);
   };
 
   // Hook useEffect
@@ -68,27 +66,67 @@ export default function Form() {
     setButton(!(validPassword && validEmail));
   },[formData]);
 
-  // Submit form
-  const handleSubmit = (e: ChangeEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Create new ID
-    const newId = uuid();
-    const newDataWithId = { ...formData, id: newId };
-    setDataList((prevDataList) => [...prevDataList, newDataWithId]);
+  
+    const user = localStorage.getItem('dataUser');
+  
+    if (user) {
+      const userExist: LoginData[] = JSON.parse(user);
+      
+      // Verifica se já existe um usuário com o mesmo login ou email
+      const duplicateLogin = userExist.some(user => user.login === formData.login);
+      const duplicateEmail = userExist.some(user => user.email === formData.email);
+  
+      if (duplicateLogin) {
+        console.log('Login já existe');
+        Swal.fire({
+          text: 'Login already exist',
+          icon: 'error',
+          timer: 2500,
+          timerProgressBar: true,
+        });
+        return;
+      }
+  
+      if (duplicateEmail) {
+        Swal.fire({
+          text: 'Email already exist',
+          icon: 'error',
+          timer: 2500,
+          timerProgressBar: true,
+        });
+        return;
+      }
 
-    // Save data local storage
-    localStorage.setItem('dataUser', JSON.stringify([...dataList, newDataWithId]));
+      // Generate a hash of the password
+      const saltRounds = 10;
+      const hashedPassword = await bcrypt.hash(formData.password, saltRounds);
 
-    // Reset Form
-    setFormData(initialFormData);
-
-    Swal.fire({
-      text: 'Service registered successfully',
-      icon: 'success',
-      timer: 1500,
-      timerProgressBar: true,
-    });
-  };
+      // Continue the process if there are no duplicates
+      const newId = uuid();
+      const newDataWithId = {
+        ...formData,
+        id: newId,
+        login: formData.login.trim(),
+        email: formData.email.trim(),
+        password: hashedPassword, // Store the hashed password
+      };
+  
+      // Save data local storage
+      localStorage.setItem('dataUser', JSON.stringify([...userExist, newDataWithId]));
+  
+      // Reset Form
+      setFormData(initialFormData);
+  
+      Swal.fire({
+        text: 'User registered successfully',
+        icon: 'success',
+        timer: 2500,
+        timerProgressBar: true,
+      });
+    }
+  };  
 
   // Button reset form
   const handleResetForm = () => {
@@ -178,7 +216,7 @@ export default function Form() {
 
       <div className="buttons-form">
         <button className="register-button" disabled={ button } type="submit">Register</button>
-        <button className="clear-button" onClick={ handleResetForm }>Reset</button>
+        <button className="clear-button" type="reset" onClick={ handleResetForm }>Reset</button>
       </div>
     </form>
   );

@@ -1,5 +1,4 @@
 footer {
-  clear: both;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -15,4 +14,21 @@ footer {
 .icons-footer {
   display: flex;
   gap: 1rem;
+}
+
+@media only screen and (max-width: 768px) {
+  footer {
+    margin-top: 70px;
+  }
+  .container-footer {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    padding: 20px 0;
+  }
+  
+  .icons-footer {
+    margin-top: 10px;
+  }
 }
