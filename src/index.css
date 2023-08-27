@@ -90,7 +90,7 @@ section {
   height: auto;
 }
 
-form {
+.form-register {
   display: flex;
   flex-flow: row wrap;
   width: 100%;
@@ -185,16 +185,16 @@ input:focus {
   width: 65%;
   padding: 15px;
   border-radius: 10px;
-  border: 1px solid #379ee2;
+  border: 1px solid darkslategray;
   color:beige;
   cursor: pointer;
   font-size: 1.3rem;
   font-weight: bold;
-  background-color:  #379ee2;
+  background-color: darkslategray;
 }
 
 .register-button:disabled {
-  background-color: #ccc;
+  background-color: darkslategray;
   color: #3a3939;
   cursor: not-allowed;
   border: none;
@@ -202,9 +202,9 @@ input:focus {
 
 .clear-button {
   width: 30%;
-  background-color: #1a1a1F;
+  background-color:darkslategray;
   border-radius: 50px;
-  border: 1px solid #c4c4c4;
+  border: 1px solid darkslategray;
   color: white;
   font-size: 1.3rem;
   cursor: pointer;
@@ -213,7 +213,7 @@ input:focus {
 button:hover {
   background-color: #1a1a1F;
   color: white;
-  border: 1px solid #c4c4c4;
+  border: 1px solid darkslategray;
 }
 
 .valid-password-check {
@@ -243,11 +243,12 @@ button:hover {
     flex-direction: column;
   }
 
-  form {
+  .form-register {
     width: 100%;
     padding: 20px;
     flex-flow: column;
   }
+
   .password-validate {
     width: 35%;
     height: 200px;

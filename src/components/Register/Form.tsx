@@ -89,7 +89,7 @@ export default function Form() {
   };
 
   return (
-    <form id="form" onSubmit={handleSubmit}>
+    <form id="form" className="form-register" onSubmit={handleSubmit}>
       <div className="inputs-form">
         <h2 className="title-form">Register User</h2>
         <div className="input-box">
