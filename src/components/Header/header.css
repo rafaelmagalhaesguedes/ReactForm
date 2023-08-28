@@ -1,0 +1,49 @@
+
+/**
+* Header CSS Roles
+**/
+header {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: #1a1a1F;
+  }
+  
+  .wrapper-header {
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    align-items: center;
+    padding: 10px 0;
+  }
+  
+  .logo > img {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .title > h1 {
+    color: #c4c4c4;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0 10px;
+  }
+  
+  .nav {
+    width: 90%;
+    display: flex;
+    justify-content: end;
+    border-bottom: 1px solid #c4c4c4;
+    padding: 10px 0;
+  }
+  
+  nav > a {
+    font-weight: bold;
+    cursor: pointer;
+    font-family: "Segoe UI",SegoeUI,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #c4c4c4;
+    padding: 0 5px;
+  }

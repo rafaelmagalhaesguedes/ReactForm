@@ -1,0 +1,153 @@
+.vetor {
+  margin-top: 180px;
+  padding: 0;
+}
+
+.form-register {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.inputs-form {
+  width: 60%;
+  margin-bottom: 20px;
+}
+
+.password-validate {
+  width: 35%;
+  height: 170px;
+  margin-top: 115px;
+  border-radius: 10px;
+  background-color: #3a3939;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 35px;
+}
+
+.password-check {
+  border-radius: 10px;
+}
+
+.password-toggle-button {
+  margin-top: 48px;
+  position: absolute;
+  background-color:#323131;
+}
+
+.toogle-button {
+  border: none;
+  background-color:#323131;
+  color: white;
+  position: absolute;
+  cursor: pointer;
+  right: 10px;
+}
+
+.title-form {
+  margin-bottom: 10px;
+  font-size: 2rem;
+}
+
+.input-box {
+  margin: 10px 0;
+}
+
+.inputs-login-pass {
+  width: 100%;
+  display: flex;
+  justify-content: right;
+  gap: 1rem;
+}
+
+.input-box {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.buttons-form {
+  display: flex;
+  flex-direction: row;
+  width: 60%;
+  justify-content: space-between;
+}
+
+.register-button {
+  width: 65%;
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid darkslategray;
+  color:beige;
+  cursor: pointer;
+  font-size: 1.3rem;
+  font-weight: bold;
+  background-color: darkslategray;
+}
+
+.register-button:disabled {
+  background-color: darkslategray;
+  color: #3a3939;
+  cursor: not-allowed;
+  border: none;
+}
+
+.clear-button {
+  width: 30%;
+  background-color:darkslategray;
+  border-radius: 50px;
+  border: 1px solid darkslategray;
+  color: white;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.valid-password-check {
+  color: #aeffb6;
+}
+  
+.invalid-password-check {
+  color: #f58989;
+}
+
+@media only screen and (max-width: 768px) {
+  .vetor {
+    display: none;
+  }
+
+  .form-register {
+    width: 100%;
+    padding: 20px;
+    flex-flow: column;
+  }
+
+  .password-validate {
+    width: 35%;
+    height: 200px;
+    margin-top: 90px;
+    border-radius: 10px;
+    background-color: #3a3939;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 35px;
+  }
+
+  .inputs-form {
+    width: 100%;
+  }
+  
+  .password-validate {
+    width: 100%;
+    margin: 20px 0;
+    padding: 25px 45px;
+    height: auto;
+  }
+
+  .buttons-form {
+    width: 100%;
+    margin: 20px 0;
+  }
+}

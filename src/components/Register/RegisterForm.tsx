@@ -1,10 +1,12 @@
 import Swal from 'sweetalert2';
 import bcrypt from 'bcryptjs';
+import './register.css';
 import { ChangeEvent, useEffect, useState } from 'react';
 import { LoginData } from '../../type';
 import { v4 as uuid } from 'uuid';
 import ValidateForms from './RegisterValidateForms';
 import RegisterToggleButton from './RegisterToggleButton';
+import Vetor from '../../assets/images/vetor.png';
 
 export default function RegisterForm() {
   const initialFormData: LoginData = {
@@ -188,6 +190,10 @@ export default function RegisterForm() {
         </div>
       </div>
 
+      <div className="vetor">
+        <img src={ Vetor } alt="Vetor" width={ 30 } />
+      </div>
+      
       <div className="password-validate">
 
         <ValidateForms 
