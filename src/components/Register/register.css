@@ -138,6 +138,7 @@
 
   .inputs-form {
     width: 100%;
+    margin: 0;
   }
   
   .password-validate {
@@ -149,6 +150,5 @@
 
   .buttons-form {
     width: 100%;
-    margin: 20px 0;
   }
 }
