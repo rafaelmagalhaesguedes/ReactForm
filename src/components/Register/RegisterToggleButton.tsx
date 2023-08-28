@@ -16,7 +16,7 @@ function RegisterToggleButton({ passwordType, onClick }: RegisterToggleButtonPro
         type="button"
         onClick={ onClick }
       >
-        <FontAwesomeIcon size="xl" icon={passwordType ? faEyeSlash : faEye} />
+        <FontAwesomeIcon size="xl" icon={passwordType ? faEye : faEyeSlash} />
       </button>
     </div>
   );

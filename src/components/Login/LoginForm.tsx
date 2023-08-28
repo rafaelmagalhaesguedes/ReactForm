@@ -38,7 +38,7 @@ function LoginForm() {
     if (dataUser) {
       const dataUserList: DataTypeLogin[] = JSON.parse(dataUser);
 
-      const foundUser = dataUserList.find(({ login, password}) => 
+      const foundUser = dataUserList.find(({ login, password }) => 
         login === formData.login && password === formData.password);
 
       if (foundUser) {
