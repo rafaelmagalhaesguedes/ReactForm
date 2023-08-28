@@ -3,10 +3,10 @@ import bcrypt from 'bcryptjs';
 import { ChangeEvent, useEffect, useState } from 'react';
 import { LoginData } from '../../type';
 import { v4 as uuid } from 'uuid';
-import ValidateForms from './ValidateForms';
-import PasswordToggleButton from './PasswordToggleButton';
+import ValidateForms from './RegisterValidateForms';
+import RegisterToggleButton from './RegisterToggleButton';
 
-export default function Form() {
+export default function RegisterForm() {
   const initialFormData: LoginData = {
     id: '',
     name: '',
@@ -66,20 +66,23 @@ export default function Form() {
     setButton(!(validPassword && validEmail));
   },[formData]);
 
+  // Submit
   const handleSubmit = async (e: ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
-  
+    
+    // Get Data 
     const user = localStorage.getItem('dataUser');
-  
+    
+    // Data?
     if (user) {
+      // Parse Data
       const userExist: LoginData[] = JSON.parse(user);
       
-      // Verifica se já existe um usuário com o mesmo login ou email
+      // Checks if there is already a user with the same login or email
       const duplicateLogin = userExist.some(user => user.login === formData.login);
       const duplicateEmail = userExist.some(user => user.email === formData.email);
   
       if (duplicateLogin) {
-        console.log('Login already exist');
         Swal.fire({
           text: 'Login already exist',
           icon: 'error',
@@ -90,7 +93,6 @@ export default function Form() {
       }
   
       if (duplicateEmail) {
-        console.log('Email already exist');
         Swal.fire({
           text: 'Email already exist',
           icon: 'error',
@@ -127,7 +129,7 @@ export default function Form() {
         timerProgressBar: true,
       });
     }
-  };  
+  };   
 
   // Button reset form
   const handleResetForm = () => {
@@ -168,7 +170,7 @@ export default function Form() {
               onChange={handleChange}
             />
           </div>
-          <PasswordToggleButton
+          <RegisterToggleButton
             passwordType={ passwordType }
             onClick={ togglePasswordVisibility }
           />

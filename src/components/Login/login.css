@@ -14,6 +14,12 @@ a {
   width: 50%;
 }
 
+.login-form {
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
 .title-form > h1 {
   font-size: 2rem;
   font-weight: bold;
@@ -23,16 +29,47 @@ a {
   margin-bottom: 10px;
 }
 
+.container-inputs {
+  width: 100%;
+}
+
 .box {
   padding: 10px 0;
 }
 
 .login-input {
   padding: 0 40px;
+  cursor: pointer;
 }
 
 .password-input {
   padding: 0 40px;
+  cursor: pointer;
+}
+
+.input-password {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+form > div {
+  position: relative;
+}
+
+.pass-toggle-button {
+  position: absolute;
+  padding-top: 10px;
+  border: none;
+  right: 10px;
+  margin-top: 2px;
+}
+
+.toggle-pass {
+  background-color: #323232;
+  border: none;
+  cursor: pointer;
+  color: white;
 }
 
 .input-checkbox {
@@ -45,10 +82,12 @@ a {
 
 .input-checkbox > label {
   margin: 10px 0;
+  cursor: pointer;
 }
 
 .checkbox-input {
   width: 15px;
+  cursor: pointer;
 }
 
 .button-sign-in > button {

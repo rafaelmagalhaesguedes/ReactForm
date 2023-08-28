@@ -1,12 +1,12 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 
-type PasswordValidateProps = {
+type RegisterValidateFormsProps = {
   valid: boolean;
   text: string;
 };
 
-function ValidateForms({ valid, text }: PasswordValidateProps) {
+function RegisterValidateForms({ valid, text }: RegisterValidateFormsProps) {
   const className = valid ? 'valid-password-check' : 'invalid-password-check';
 
   if (className === 'valid-password-check'){
@@ -17,4 +17,4 @@ function ValidateForms({ valid, text }: PasswordValidateProps) {
   return <div className={ `password-check ${className}` }>{text}</div>;
 }
 
-export default ValidateForms;
+export default RegisterValidateForms;

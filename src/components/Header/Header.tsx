@@ -6,10 +6,12 @@ export default function Header() {
     <header>
       <div className="wrapper-header">
         <div className="logo">
-            <img src={ Logo }></img>
+            <Link to="/">
+              <img src={ Logo } alt="Logo" />
+            </Link>
         </div>
         <div className="title">
-            <h1>Sign!</h1>
+          <h1>Sign!</h1>
         </div>
         <div className="nav">
             <nav>

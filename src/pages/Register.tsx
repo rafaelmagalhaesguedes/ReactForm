@@ -1,11 +1,11 @@
-import Form from '../components/Register/Form';
+import RegisterForm from '../components/Register/RegisterForm';
 
 function Register() {
   return (
     <>
-      <Form />
+      <RegisterForm />
     </>
   )
 }
 
-export default Register
+export default Register;

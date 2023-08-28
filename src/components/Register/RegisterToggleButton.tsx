@@ -1,12 +1,12 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
-type PassToggleBtnProps = {
+type RegisterToggleButtonProps = {
   passwordType: boolean;
   onClick: () => void;
 };
 
-function PasswordToggleButton({ passwordType, onClick }: PassToggleBtnProps) {
+function RegisterToggleButton({ passwordType, onClick }: RegisterToggleButtonProps) {
   return (
     <div className="password-toggle-button">
       <button
@@ -16,10 +16,10 @@ function PasswordToggleButton({ passwordType, onClick }: PassToggleBtnProps) {
         type="button"
         onClick={ onClick }
       >
-        <FontAwesomeIcon size="lg" icon={passwordType ? faEyeSlash : faEye} />
+        <FontAwesomeIcon size="xl" icon={passwordType ? faEyeSlash : faEye} />
       </button>
     </div>
   );
 }
 
-export default PasswordToggleButton;
+export default RegisterToggleButton;
