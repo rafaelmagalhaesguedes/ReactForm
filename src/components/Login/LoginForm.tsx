@@ -1,4 +1,6 @@
-import { useState } from 'react';
+/* import Swal from 'sweetalert2';
+ */import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Image from '../../assets/react.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faLock } from '@fortawesome/free-solid-svg-icons';
@@ -16,6 +18,8 @@ function LoginForm() {
     login: '',
     password: '',
   });
+
+  const navigate = useNavigate();
 
   // Button Show Password
   const [passwordType, setPasswordType] = useState(false);
@@ -38,19 +42,17 @@ function LoginForm() {
     if (dataUser) {
       const dataUserList: DataTypeLogin[] = JSON.parse(dataUser);
 
-      const foundUser = dataUserList.find(({ login, password }) => 
-        login === formData.login && password === formData.password);
+      const user = dataUserList.find(({ login, password }) => 
+        login === formData.login && password === formData.password && login === 'admin' || login === 'root');
 
-      if (foundUser) {
-        // Login successful
-        console.log('Login successful');
+      if (user) {
+        navigate('/admin');
       } else {
-        // Login failed
-        console.log('Login failed');
+        navigate('/');
       }
     } else {
       // No user data found
-      console.log('User data not found');
+      navigate('/login');
     }
   };
 

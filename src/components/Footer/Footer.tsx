@@ -8,7 +8,7 @@ function Footer() {
       <div className="container-footer">
 
         <div className="links-footer">
-            <p>@Copytight CyberRM Dev - 2023</p>
+            <p>@Copyright CyberRM Dev - 2023</p>
         </div>  
 
         <div className="icons-footer">
